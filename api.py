@@ -8,7 +8,7 @@ headers = {
     'apikey': "", 
 } 
 
-conn.request("GET", "/v4/neighborhood/community", headers=headers)
+conn.request("GET", "/propertyapi/v1.0.0/sale/snapshot?latitude=30.2500&longitude=-97.7500&radius=200&orderBy=saleAmt+desc&pageSize=50", headers=headers)
 
 res = conn.getresponse()
 data = res.read()
