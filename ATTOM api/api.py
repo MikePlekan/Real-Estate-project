@@ -5,14 +5,14 @@ import random
 zips=pd.read_csv('zip.csv')
 df=pd.DataFrame(columns=['countrySubd', 'locality', 'attomId','saleTransDate','proptype','yearbuilt'])
 sales=pd.DataFrame(columns=['saleamt','attomId'])
-for x in random.sample(zips['zipcode'].to_list(),10):
+for zip in random.sample(zips['zipcode'].to_list(),20):
 
     conn = http.client.HTTPSConnection("api.gateway.attomdata.com")
     headers = { 
         'accept': "application/json", 
         'apikey': "2b1e86b638620bf2404521e6e9e1b19e", 
     }
-    conn.request("GET", "/propertyapi/v1.0.0/sale/snapshot?postalcode=12309&postalcode=12211&minUniversalSize=0&maxUniversalSize=7000&pageSize=500", headers=headers)
+    conn.request("GET", "/propertyapi/v1.0.0/sale/snapshot?postalcode="+zip+"&minUniversalSize=0&maxUniversalSize=7000&pageSize=500", headers=headers)
 
     res = conn.getresponse()
     data = res.read()
@@ -40,7 +40,8 @@ for x in random.sample(zips['zipcode'].to_list(),10):
                             'yearbuilt':[x['summary'].get('yearbuilt')],
                             'universalsize':[x['building'].get('size').get('universalsize')],
                             'beds':[x['building'].get('rooms').get('beds')],
-                            'bathstotal':[x['building'].get('rooms').get('bathstotal')]})
+                            'bathstotal':[x['building'].get('rooms').get('bathstotal')],
+                            'zipcode':zip})
             df=pd.concat([df,temp],ignore_index=True)
             temps=pd.DataFrame({'saleamt':[x['sale']['amount'].get('saleamt')],'attomId':[x['identifier'].get('attomId')]})
             sales=pd.concat([sales,temps],ignore_index=True)
