@@ -13,3 +13,5 @@ If you run into seaborn objects error:
 3. run 'pip install seaborn==0.12.2'
 4. restart kernal
 5. all set!
+
+Neural Network Help from Noah: https://github.com/noahfranz13/NMDinStars/blob/main/ML_models/ML_Helpers.py 
