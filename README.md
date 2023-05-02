@@ -4,7 +4,10 @@
 Download data from this link,
 https://www.kaggle.com/code/masumrumi/zillow-an-analysis-with-visualizations/input?select=State_time_series.csv
 and add it to a zillowData folder.
-
+Files that show useful data:
+1. APIMAchinelearning
+2. AttomML
+3.Looking at data
 Needed libaries:(all can be installed through pip, exact command can be found on libarys' websites)
 -Pandas
 -Numpy
