@@ -6,7 +6,7 @@ https://www.kaggle.com/code/masumrumi/zillow-an-analysis-with-visualizations/inp
 and add it to a zillowData folder.
 
 Files that show useful data:
-1. APIMAchinelearning
+1. APIMachinelearning
 2. AttomML
 3. Looking at data
 4. DataPerMonth
